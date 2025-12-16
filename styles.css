@@ -1,0 +1,130 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: lightsteelblue;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;      
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; 
+}
+
+h1 {
+  font-size: 2.5rem;    
+}
+
+h2 {
+  font-size: 2rem;      
+}
+
+h3 {
+  font-size: 1.75rem;   
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;       
+}
+
+footer {
+  font-family: 'Roboto', sans-serif; 
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    background-color: #f9f9f9;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hero-content h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+.hero-content p {
+    margin: 0.3rem 0;
+}
+
+.hero-content button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-content button:hover {
+    background-color: #0056b3;
+}
+
+/* MAIN */
+.about {
+    background-color: #f9f9f9;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-columns {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto; 
+}
+
+.about h2 {
+    text-align: center;
+}
+
+.edu-skills,
+.about-story {
+  flex: 1;
+}
+
+/* FOOTER */
+.contact {
+    display: flex;
+    justify-content: center;
+
+    background-color: #f9f9f9;
+    width: fit-content;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
