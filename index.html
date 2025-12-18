@@ -3,30 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Website - Sidebar Layout</title>
+  <title>Sai Sai Naing Linn Oo - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- ACCENT SHAPES -->
+  <div class="accent-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="hero-img">
-      <img src="images/1765876446.png" alt="Sai Sai Naing Linn Oo">
+    <div class="sidebar-top">
+      <div class="profile-img-container">
+        <img src="images/1765876446.png" alt="Sai Sai Naing Linn Oo" class="profile-img">
+      </div>
+      <h1>Sai Sai Naing Linn Oo</h1>
+      <p class="role">Full Stack Developer</p>
+      <p class="intro">I build clean and functional web applications, connecting logic with creativity.</p>
     </div>
-    <h1>Sai Sai Naing Linn Oo</h1>
-    <p>Full Stack Developer</p>
-    <p>Hi, I’m Sai Sai, a full-stack developer passionate about building clean and functional web applications.</p>
-    <button type="button" onclick="document.getElementById('contact').scrollIntoView();">Contact</button>
+
+    <!-- HAMBURGER MENU -->
+    <div class="hamburger" id="hamburger">&#9776;</div>
+
+    <!-- NAVIGATION -->
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <ul>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Contact</button>
   </aside>
 
   <!-- MAIN CONTENT -->
   <main class="main-content">
     <!-- ABOUT SECTION -->
-    <section class="about">
+    <section id="about" class="about section">
       <h2>About Me</h2>
       <div class="about-columns">
-        <!-- Left Column: Education & Skills -->
         <div class="edu-skills">
           <div class="about-edu">
             <p><strong>Education:</strong> High School Graduate</p>
@@ -35,7 +55,6 @@
             <p><strong>Skills:</strong> JavaSE, HTML, CSS, JavaScript, React, MySQL</p>
           </div>
         </div>
-        <!-- Right Column: Story -->
         <div class="about-story">
           <p>Ever since I was a kid, I’ve been curious about how things work. Learning technology has deepened this interest, as I enjoy seeing how logic connects components and how the bigger picture comes together.</p>
         </div>
@@ -43,14 +62,53 @@
     </section>
 
     <!-- CONTACT FOOTER -->
-    <footer id="contact" class="contact">
+    <footer id="contact" class="contact section">
       <ul>
         <li>Email: <a href="mailto:justExample123@gmail.com">justExample123@gmail.com</a></li>
         <li>Phone: 09981234567</li>
-        <li>GitHub: <a href="https://github.com/Shun89303" target="_blank">https://github.com/Shun89303</a></li>
+        <li>GitHub: <a href="https://github.com/Shun89303" target="_blank">Shun89303</a></li>
       </ul>
     </footer>
   </main>
+
+  <!-- SCRIPT FOR FADE-IN SECTIONS, SCROLL SPY & HAMBURGER -->
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const hamburger = document.getElementById('hamburger');
+    const sidebarNav = document.getElementById('sidebar-nav');
+
+    // Fade-in sections
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Scroll spy
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+
+    // Hamburger toggle with hover and click interaction
+    hamburger.addEventListener('click', () => {
+      sidebarNav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
